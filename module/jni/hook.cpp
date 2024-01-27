@@ -12,10 +12,23 @@ jstring my_native_get(JNIEnv *env, jclass clazz, jstring keyJ, jstring defJ) {
 
     jstring hooked_result = nullptr;
 
-    if (strcmp(key, "ro.build.version.emui") == 0) {
-        hooked_result = env->NewStringUTF("EmotionUI_8.0.0");
-    } else if (strcmp(key, "ro.build.hw_emui_api_level") == 0) {
-        hooked_result = env->NewStringUTF("21");
+    // MIUI
+    if (strcmp(key, "ro.product.brand") == 0) { // ro.product.brand=Xiaomi
+        hooked_result = env->NewStringUTF("Xiaomi");
+    } else if (strcmp(key, "ro.product.manufacturer") == 0) { // ro.product.manufacturer=Xiaomi
+        hooked_result = env->NewStringUTF("Xiaomi");
+    } else if (strcmp(key, "ro.miui.ui.version.name") == 0) { // ro.miui.ui.version.name=V12
+        hooked_result = env->NewStringUTF("V12");
+    } else if (strcmp(key, "ro.miui.ui.version.code") == 0) { // ro.miui.ui.version.code=10
+        hooked_result = env->NewStringUTF("10");
+    } else if (strcmp(key, "ro.miui.version.code_time") == 0) { // ro.miui.version.code_time=1592409600
+        hooked_result = env->NewStringUTF("1592409600");
+    } else if (strcmp(key, "ro.miui.internal.storage") == 0) { // ro.miui.internal.storage=/sdcard/
+        hooked_result = env->NewStringUTF("/sdcard/");
+    } else if (strcmp(key, "ro.miui.region") == 0) { // ro.miui.region=CN
+        hooked_result = env->NewStringUTF("CN");
+    } else if (strcmp(key, "ro.miui.cust_variant") == 0) { // ro.miui.cust_variant=cn
+        hooked_result = env->NewStringUTF("cn");
     }
 
     env->ReleaseStringUTFChars(keyJ, key);
@@ -31,8 +44,8 @@ jstring my_native_get(JNIEnv *env, jclass clazz, jstring keyJ, jstring defJ) {
 void hookBuild(JNIEnv *env) {
     LOGD("hook Build\n");
     jclass build_class = env->FindClass("android/os/Build");
-    jstring new_brand = env->NewStringUTF("Huawei");
-    jstring new_manufacturer = env->NewStringUTF("HUAWEI");
+    jstring new_brand = env->NewStringUTF("Xiaomi");
+    jstring new_manufacturer = env->NewStringUTF("Xiaomi");
 
     jfieldID brand_id = env->GetStaticFieldID(build_class, "BRAND", "Ljava/lang/String;");
     if (brand_id != nullptr) {
