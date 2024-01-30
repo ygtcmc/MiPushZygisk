@@ -1,12 +1,12 @@
-# HMSPush Zygisk
+# MiPush Zygisk
 
-一个用于为应用伪装华为设备的 Magisk/Zygisk 模块，以便于使用 [HMSPush](https://github.com/fei-ke/HmsPushZygisk.git)
+一个用于为应用伪装华为设备的 Magisk/Zygisk 模块，以便于使用 [MiPush](https://github.com/NihilityT/MiPushFramework.git)
 
 ### 下载
-前往 [Release](https://github.com/fei-ke/HmsPushZygisk/releases) 下载
+前往 [Release](https://github.com/notxx/MiPushZygisk/releases) 下载
 
 ### 配置
-手动编辑 `/data/misc/hms/app.conf` 文件，或者使用 [HMSPush](https://github.com/fei-ke/HmsPushZygisk.git) 应用进行配置
+手动编辑 `/data/adb/modules/zygisk_mipushfake/config` 文件
 
 配置示例：
 ```
@@ -23,6 +23,9 @@ com.example.app|com.example.app:push
 ```shell
 ./build.sh
 ```
+
+### 致谢
+感谢[HMSPush](https://github.com/fei-ke/HmsPushZygisk.git)，这个项目99%的代码都是从那边抄的
 
 ### License
 [GNU General Public License v3 (GPL-3)](http://www.gnu.org/copyleft/gpl.html).
