@@ -17,19 +17,21 @@ jstring my_native_get(JNIEnv *env, jclass clazz, jstring keyJ, jstring defJ) {
         hooked_result = env->NewStringUTF("Xiaomi");
     } else if (strcmp(key, "ro.product.manufacturer") == 0) { // ro.product.manufacturer=Xiaomi
         hooked_result = env->NewStringUTF("Xiaomi");
-    } else if (strcmp(key, "ro.miui.ui.version.name") == 0) { // ro.miui.ui.version.name=V12
-        hooked_result = env->NewStringUTF("V12");
-    } else if (strcmp(key, "ro.miui.ui.version.code") == 0) { // ro.miui.ui.version.code=10
-        hooked_result = env->NewStringUTF("10");
-    } else if (strcmp(key, "ro.miui.version.code_time") == 0) { // ro.miui.version.code_time=1592409600
-        hooked_result = env->NewStringUTF("1592409600");
+    } else if (strcmp(key, "ro.miui.ui.version.name") == 0) { // ro.miui.ui.version.name=V130
+        hooked_result = env->NewStringUTF("V130");
+    } else if (strcmp(key, "ro.miui.ui.version.code") == 0) { // ro.miui.ui.version.code=13
+        hooked_result = env->NewStringUTF("13");
+    } else if (strcmp(key, "ro.miui.version.code_time") == 0) { // ro.miui.version.code_time=1658851200
+        hooked_result = env->NewStringUTF("1658851200");
     } else if (strcmp(key, "ro.miui.internal.storage") == 0) { // ro.miui.internal.storage=/sdcard/
         hooked_result = env->NewStringUTF("/sdcard/");
     } else if (strcmp(key, "ro.miui.region") == 0) { // ro.miui.region=CN
         hooked_result = env->NewStringUTF("CN");
     } else if (strcmp(key, "ro.miui.cust_variant") == 0) { // ro.miui.cust_variant=cn
         hooked_result = env->NewStringUTF("cn");
-    }
+    } else if (strcmp(key, "ro.vendor.miui.region") == 0) { // ro.vendor.miui.region=CN
+        hooked_result = env->NewStringUTF("CN");
+}
 
     env->ReleaseStringUTFChars(keyJ, key);
     env->ReleaseStringUTFChars(defJ, def);
